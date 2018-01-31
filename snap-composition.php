@@ -21,13 +21,17 @@ class vehicle{
 }
 class troika extends vehicle{
     protected $sled;
+
+    public function JingleBells() : void {
+    	echo "Buistra, buistra!" . PHP_EOL;
+	 }
 }
 class stagecoach extends vehicle {
 	use Brake;
 	protected $wheels;
 
 	public function escape(): void {
-		echo "I shot them robbers dead" . PHP_EOL;
+		echo "I shot them robbers dead!" . PHP_EOL;
 	}
 }
 

@@ -38,6 +38,12 @@ class stagecoach extends vehicle {
  public function getHorsepower() : string {
 	return($this->horsepower);
  }
+ public function __constructor(string $newHorsepower){
+ 	try{
+ 		$this->setHorsepower($newHorsepower);
+ 		}catch(\InvalidArgumentException | \Exception | \TypeError)
+ 	}
+ }
  public function setHorsepower($newHorsepower) : void {
 	$newHorsepower = filter_var($newHorsepower, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
 	$newHorsepower = strtoupper(trim($newHorsepower));
@@ -46,8 +52,14 @@ class stagecoach extends vehicle {
 		throw(new InvalidArgumentException("bad horsepower number"));
 	}
 	$this->horsepower = $newHorsepower;
-		//(/d is the same as [0-9])...preg_match() returns 1 if the pattern matches given subject, 0 if it does not, or FALSE if an error occurred.
+		//(/d is the same as [0-9])...preg_match() returns 1 if the pattern matches given subject, 0 if it does not, or FALSE if an error occurred. WTF dynamic binding "$"
  }
+class ParadeFloat extends Vehicle {
+	protected $isGettingAwayVerySlowly;
+	public function getIsGettingAwayVerySlowly( : bool {
+		return
+	})
+
 ?>
 
 

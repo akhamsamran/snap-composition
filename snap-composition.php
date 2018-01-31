@@ -14,7 +14,7 @@ trait Brake {
     }
     }
 class vehicle{
-    protected $horseposer;
+    protected $horsepower;
     protected $shape;
     protected $maxSpeed;
     protected $comfort;
@@ -34,7 +34,20 @@ class stagecoach extends vehicle {
 		echo "I shot them robbers dead!" . PHP_EOL;
 	}
 }
+/** notes based on Dylan's solution**/
+ public function getHorsepower() : string {
+	return($this->horsepower);
+ }
+ public function setHorsepower($newHorsepower) : void {
+	$newHorsepower = filter_var($newHorsepower, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+	$newHorsepower = strtoupper(trim($newHorsepower));
 
+	if(preg_match("/^[A-Z]{3}\d{3}/", $newHorsepower)){
+		throw(new InvalidArgumentException("bad horsepower number"));
+	}
+	$this->horsepower = $newHorsepower;
+		//(/d is the same as [0-9])...preg_match() returns 1 if the pattern matches given subject, 0 if it does not, or FALSE if an error occurred.
+ }
 ?>
 
 

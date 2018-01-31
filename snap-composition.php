@@ -60,7 +60,7 @@ class ParadeFloat extends Vehicle {
 		return
 	})
 /**
-* <?php
+<?php
 trait Brake {
     public function brake() : void {
         echo "Unlike a lot of Burqueños, I stop for red lights" . PHP_EOL;
@@ -70,7 +70,7 @@ trait Brake {
 class Vehicle {
     protected $plateNo;
 
-    public function __constructor(string $newPlateNo) {
+    public function __construct(string $newPlateNo) {
         try {
             $this->setPlateNo($newPlateNo);
         } catch(\InvalidArgumentException | \Exception | \TypeError $exception) {
@@ -100,7 +100,7 @@ class ParadeFloat extends Vehicle {
 
     protected $isGettingAwayVerySlowly;
 
-    public function __construct($newIsGettingAwayVerySlowly, string $newPlateNo) : void {
+    public function __construct($newIsGettingAwayVerySlowly, string $newPlateNo) {
         try {
             parent::__construct($newPlateNo);
             $this->setIsGettingAwayVerySlowly($newIsGettingAwayVerySlowly);
